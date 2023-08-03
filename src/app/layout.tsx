@@ -1,8 +1,10 @@
 import Navbar from '@/components/Navbar';
+import Providers from '@/components/Providers';
 import { Toaster } from '@/components/ui/Toaster';
 import { cn } from '@/lib/utils';
 import '@/styles/globals.css'
 import { Inter} from 'next/font/google';
+import React from 'react';
 export const metadata = {
   title: 'Breadit',
   description: 'A Reddit clone built with Next.js and TypeScript.',
@@ -12,8 +14,10 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
+  authModal
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+  authModal: React.ReactNode
 }) {
   return (
     <html lang='en' className={cn(
@@ -21,13 +25,18 @@ export default function RootLayout({
       inter.className
     )}>
       <body className='min-h-screen pt-12 bg-slate-50 antialiased'>
-        <Navbar/>
+        <Providers>
+          {/* @ts-expect-error Server Component */}
+          <Navbar/>
 
-        <div className='container max-w-7xl mx-auto h-full pt-12'>
-          {children}
-        </div>
+          {/* authModal passed in allows for parallel routes so modal appears when user clicks 'sign-in' */}
+          {authModal}
+          <div className='container max-w-7xl mx-auto h-full pt-12'>
+            {children}
+          </div>
 
-        <Toaster />
+          <Toaster />
+        </Providers>
       </body>
     </html>
   )
