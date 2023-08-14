@@ -69,9 +69,9 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
                 <div className='mb-2'>
                   <PostComment
                     comment={topLevelComment}
-                    currentVote={topLevelCommentVote}
-                    votesAmt={topLevelCommentVotesAmt}
-                    postId={postId}
+                    // currentVote={topLevelCommentVote}
+                    // votesAmt={topLevelCommentVotesAmt}
+                    // postId={postId}
                   />
                 </div>
 
@@ -95,9 +95,9 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
                         className='ml-2 py-2 pl-4 border-l-2 border-zinc-200'>
                         <PostComment
                           comment={reply}
-                          currentVote={replyVote}
-                          votesAmt={replyVotesAmt}
-                          postId={postId}
+                          // currentVote={replyVote}
+                          // votesAmt={replyVotesAmt}
+                          // postId={postId}
                         />
                       </div>
                     )

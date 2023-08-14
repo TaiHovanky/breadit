@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { UserAvatar } from "./UserAvatar";
 import { Comment, CommentVote, User } from "@prisma/client";
 import { formatTimeToNow } from "@/lib/utils";
+import CommentVotes from "./CommentVotes";
 
 type ExtendedComment = Comment & {
   votes: CommentVote[]
@@ -41,6 +42,14 @@ const PostComment = ({ comment }: PostCommentProps) => {
       </div>
 
       <p className='text-sm text-zinc-900 mt-2'>{comment.text}</p>
+
+      <div className='flex gap-2 items-center'>
+        <CommentVotes
+          commentId={comment.id}
+          votesAmt={votesAmt}
+          currentVote={currentVote}
+        />
+      </div>
     </div>
   )
 }
