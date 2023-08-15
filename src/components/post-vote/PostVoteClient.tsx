@@ -43,7 +43,7 @@ const PostVoteClient = ({
       await axios.patch('/api/subreddit/post/vote', payload)
     },
     onError: (err, voteType) => {
-      if (voteType === 'UP') setVotesAmt((prev) => prev - 1) // using callback in setState func
+      if (voteType === 'UP') setVotesAmt((prev) => prev - 1)
       else setVotesAmt((prev) => prev + 1)
 
       // reset current vote
@@ -61,7 +61,7 @@ const PostVoteClient = ({
         variant: 'destructive',
       })
     },
-    onMutate: (type: VoteType) => { // this is for optimistic update (before getting response from server)
+    onMutate: (type: VoteType) => {
       if (currentVote === type) {
         // User is voting the same way again, so remove their vote
         setCurrentVote(undefined)
@@ -116,4 +116,4 @@ const PostVoteClient = ({
   )
 }
 
-export default PostVoteClient;
+export default PostVoteClient

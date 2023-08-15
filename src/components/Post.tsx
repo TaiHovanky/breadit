@@ -7,8 +7,6 @@ import Link from 'next/link'
 import { FC, useRef } from 'react'
 import EditorOutput from './EditorOutput'
 import PostVoteClient from './post-vote/PostVoteClient'
-// import EditorOutput from './EditorOutput'
-// import PostVoteClient from './post-vote/PostVoteClient'
 
 type PartialVote = Pick<Vote, 'type'>
 
@@ -30,7 +28,7 @@ const Post: FC<PostProps> = ({
   subredditName,
   commentAmt,
 }) => {
-  const pRef = useRef<HTMLParagraphElement>(null);
+  const pRef = useRef<HTMLParagraphElement>(null)
 
   return (
     <div className='rounded-md bg-white shadow'>
@@ -82,6 +80,6 @@ const Post: FC<PostProps> = ({
         </Link>
       </div>
     </div>
-  );
+  )
 }
-export default Post;
+export default Post

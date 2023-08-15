@@ -2,8 +2,7 @@
 
 import { Button } from '@/components/ui/Button'
 import { toast } from '@/hooks/use-toast'
-import { CommentRequest } from '@/lib/validators/comment';
-// validator created to check whether comment should be sent to api
+import { CommentRequest } from '@/lib/validators/comment'
 
 import { useCustomToasts } from '@/hooks/use-custom-toasts'
 import { useMutation } from '@tanstack/react-query'
@@ -48,10 +47,10 @@ const CreateComment: FC<CreateCommentProps> = ({ postId, replyToId }) => {
       })
     },
     onSuccess: () => {
-      router.refresh() // refresh after creating a comment
+      router.refresh()
       setInput('')
     },
-  });
+  })
 
   return (
     <div className='grid w-full gap-1.5'>
@@ -78,4 +77,4 @@ const CreateComment: FC<CreateCommentProps> = ({ postId, replyToId }) => {
   )
 }
 
-export default CreateComment;
+export default CreateComment

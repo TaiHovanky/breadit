@@ -75,7 +75,7 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
                   />
                 </div>
 
-                {/* Render replies to comment */}
+                {/* Render replies */}
                 {topLevelComment.replies
                   .sort((a, b) => b.votes.length - a.votes.length) // Sort replies by most liked
                   .map((reply) => {
